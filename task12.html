@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0   ">
+    <head>
+        <link rel="stylesheet" href="style.css">
+     
+    </head>
+  
+<body>
+        <center>
+       <h1>Book a Call</h1>
+        <p>Book a call slot and our represntive will call you within 1hr of selected time</p>
+      <hr></hr>
+
+
+<div class="main">
+    <form class="form" id="form" action="/action.php">
+      <div class="formcontrol">
+                  <label for="name">Name:</label><br>
+                  <input type="text" placeholder="Username" id="username" name="username" required> <i class="fa fa-user"></i>  <br>
+        </div>
+      <div class="formcontrol">
+            <label for="email">Enter your Email:</label><br>
+            <input type="email" placeholder="ff@gmail.com" id="email" name="email" required><br>
+       </div>  
+      <div class="formcontrol"> 
+            <label for="phone">Enter a Phone number:</label><br>
+             <input type="phone" id="phone" placeholder="10digitnumber" name="phone" required><br>
+          </div>
+      <div class="formcontrol">
+                
+               <button type="submit" form="nameform" id="submit" value="Submit">Submit</button>
+          </div>
+
+</div>
+    </form>
+</center>
+<center>
+  <form id="mydom">
+    <table class="blue" id="table_show">
+        <tr><td>name</td><td id="b1"></td></tr>
+        <tr><td>email</td><td id="b2"></td></tr>
+        <tr><td>phonenumber</td><td id="b3"></td></tr>
+    </table>
+  </form>
+    
+</center>
+</body>
+</html>
+    <script>
+        $(document).read(function(){
+            $("#add").on("click",function(){
+                 var name = $("#a1").val();
+                 var email = $("#a2").val();
+                 var phonenumber = $("#a3").val();
+            
+            if(name==="" || email==="" || phonenumber===""){
+                $("#error").html("<p this is required</p>");
+            }
+            else{
+                $("#error").html("");
+                $("table_show").removeClass("blue");
+                $("table_show").addClass("table table_bordered");
+                $("#b1").html(name);
+                $("#b2").html(email);
+                $("#b3").html(phonenumber);
+                $("#mydom").trigger("reset");
+                $("table_show").fadeOut("1000");
+                $("table_show").fadeIn("4000");
+                $("table_show").focusin();
+            }
+        })
+    })
+        </script>

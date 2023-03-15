@@ -1,0 +1,74 @@
+<!DOCTYPE>
+<html>
+
+<head>
+	<title>On Form Submit Show Result Using jQuery</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="./style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Wancho&display=swap" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+	<div class="wrapper">
+		<div class="inner">
+		
+			<!-- Form Title Code -->
+			<div class="title">
+			  <h2>Form</h2>
+			</div>
+			
+			<!-- Form Code -->
+			<form class="myTable">
+			  <p>
+				<label>Name</label>
+				<input class="name" type="text" id="name">
+			  </p>
+			  
+			  <p>
+				<label>Email</label>
+				<input class="email" type="email" id="email">
+			  </p>
+			  
+			  <button type="button" class="save" id="save">Save</button>
+			</form>
+			
+		</div>
+	
+		<div class="inner overlow">
+		
+			<!-- Table Title Code -->
+			<div class="title">
+			  <h2>Data</h2>
+			</div>
+		
+			<!-- Table Data Code -->
+			<table class="data" id="myData">
+				<thead>
+					<tr class="dataRow">
+						<th>Id</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				
+				<tbody> </tbody>
+			</table>
+			
+		</div>
+		
+	</div>
+</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script  src="./script.js"></script>
+	 
+			
+			//localStorage.setItem("myobj",myobj_serialized);
+	
+</body>
+</html>
