@@ -1,0 +1,63 @@
+<html>
+    <body>
+        <form onsubmit="saveToLocalStorage(event)">
+            <label>Name</label>
+            <input type="text" name="username" required/>
+            <label>EmailId</label>
+            <input type="email" name="emailid" required/>
+            <label>Phonenumber</label>
+            <input type="tel" name="phonenumber" required/>
+            <button>Submit</button>
+        </form>
+  
+  
+  <script >
+
+function saveToLocalStorage(event){
+    event.preventDefault();
+
+    
+ 
+
+    const name= event.target.username.value;
+    const email= event.target.emailid.value;
+    const phonenumber= event.target.phonenumber.value;
+     
+
+    localStorage.setItem('name',name);
+    localStorage.setItem('email',email);
+    localStorage.setItem('phonenumber',phonenumber);
+
+         const myobj={
+            name:name,
+            email:email,
+            phonenumber:phonenumber
+         }
+        
+         //const obj = document.localStorage.getItem('myobj');
+
+         let user ;
+         if(myobj === null){
+          user=[];
+         }
+        
+        else{
+          user =JSON.parse(myobj);
+        }
+        user.push[myobj];
+        localStorage.setItem('user',JSON.stringify(myobj));
+         
+       // var user =localStorage.getItem("user",user);
+        //var em = localStorage.getItem("em",em);
+        /*let myobj_serialized = JSON.stringify(myobj);
+        
+        localStorage.setItem("myobj",myobj_serialized);
+    
+        let myobj_deserialized = JSON.parse(localStorage.getItem("myobj" || "[]"),{myobj:myobj.value});
+        console.log(myobj_deserialized);*/
+    }
+
+  </script>
+   </body>
+
+</html> 
