@@ -1,35 +1,39 @@
-<html>
-    <body>
-        <form onsubmit="saveToLocalStorage(event)">
-            <label>Name</label>
-            <input type="text" name="username" required/>
-            <label>EmailId</label>
-            <input type="email" name="email" required/>
-            <label>Phonenumber</label>
-            <input type="tel" name="phonenumber" required/>
-            <button>Submit</button>
-        </form>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>EmailId</th>
-                    <th>Phonenumber</th>
-                    
-                </tr>
-            </thead>
-            <tbody id="result">
-    
-            </tbody>
-        </table>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  
-  <script >
+</head>
+<body>
+    <form id="form">
+        <input type="text" id="username" required placeholder="Enter the username">
+        <input type="text" name="" id="EmailId" required placeholder="Enter the emailid">
+        <input type="text" name="" id="phonenumber" required placeholder="Enter the phonenumber">
+        <button>Add</button>
+    </form>
+    <button id="clear">Clear Users</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>EmailId</th>
+                <th>Phonenumber</th>
+                
+            </tr>
+        </thead>
+        <tbody id="result">
+
+        </tbody>
+    </table>
+</body>
+<script>
     let users = []
     let form = document.getElementById('form')
 
-    function saveToLocalStorage(users){
+    function displayUsers(users){
         users.forEach(user => {
             document.getElementById('result').innerHTML += `
             
@@ -41,11 +45,12 @@
             
             `
         });
-    
-        if (localStorage.getItem('users')) {
+    }
+
+    if (localStorage.getItem('users')) {
         let users = localStorage.getItem('users')
         displayUsers(JSON.parse(users))
-    
+    }
 
     form.addEventListener('submit', (e) => {
         document.getElementById('result').innerHTML=""
@@ -58,6 +63,8 @@
             EmailId: EmailId,
             phonenumber:phonenumber
         }
+
+
 
         document.getElementById('username').value=""
         document.getElementById('EmailId').value=""
@@ -75,40 +82,24 @@
             localStorage.setItem('users', JSON.stringify(users))
             displayUsers(users)
         }
+
     })
-
-    document.getElementById('clear').addEventListener('click',() => {
-        localStorage.clear()
-        document.getElementById("result").innerHTML = ""
-    })
-
-   
-        }
-   
-
-         const obj={
-            name:name,
-            email:email,
-            phonenumber:phonenumber
-         }
-         localStorage.setItem(obj.email,JSON.stringify(obj))
-         showUserOnScreen(obj);
-
+        function  displayUsers(user){
         const parentElem = document.getElementById('list of Itemes')
         const childElem = document.createElement('li')
-        childElem.textContent = obj.name+'-'+obj.email+'-'+obj.phonenumber;
+        childElem.textContent = user.name+'-'+user.EmailId+'-'+user.phonenumber;
     const deleteButton = document.createElement('input')
     deleteButton.type = "button"
     deleteButton.value ='Delete'
     deleteButton.onclick=()=>{
-        localStorage.removeItem(obj.EmailId)
+        localStorage.removeItem(user.EmailId)
         parentElem.removeChild(childElem)
     }  
     childElem.appendChild(deleteButton);
-}
+    parentElem.appendChild(childElem);
+    } 
+
    
+</script>
 
-  </script>
-   </body>
-
-</html> 
+</html>

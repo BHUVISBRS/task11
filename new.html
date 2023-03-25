@@ -5,23 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+    <title>Localstorage CRUD in Javascript</title>
 </head>
 <body>
     <form id="form">
         <input type="text" id="username" required placeholder="Enter the username">
-        <input type="text" name="" id="EmailId" required placeholder="Enter the emailid">
+        <input type="text" name="" id="EmailId " required placeholder="Enter the emailid">
         <input type="text" name="" id="phonenumber" required placeholder="Enter the phonenumber">
-        <button>Add</button>
+        <button>submit</button>
     </form>
-    <button id="clear">Clear Users</button>
+   
     <table>
         <thead>
             <tr>
                 <th>Name</th>
                 <th>EmailId</th>
-                <th>Phonenumber</th>
-                
+                <th>phonenumber</th>
             </tr>
         </thead>
         <tbody id="result">
@@ -82,10 +81,7 @@
         }
     })
 
-    document.getElementById('clear').addEventListener('click',() => {
-        localStorage.clear()
-        document.getElementById("result").innerHTML = ""
-    })
+   
 </script>
 
 </html>
